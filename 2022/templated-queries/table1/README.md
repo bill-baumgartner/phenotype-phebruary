@@ -27,14 +27,14 @@ library(readr)
 sql_template <- read_file("only-cohort-condition-frequencies.sql")
 sql <- render(sql_template, cdm_database_schema=[CDM_DATABASE_SCHEMA],
                             vocabulary_database_schema=[VOCABULARY_DATABASE_SCHEMA],
-                            including_cohort_id=[INCLUDING_COHORT_ID],
-                            excluding_cohort_id=[EXCLUDING_COHORT_ID])
+                            include_cohort_id=[INCLUDE_COHORT_ID],
+                            exclude_cohort_id=[EXCLUDE_COHORT_ID])
 ```
 where,
 * [CDM_DATABASE_SCHEMA] = the schema name for your OMOP instance, i.e. location of the CONDITION_OCCURRENCE table
 * [VOCABULARY_DATABASE_SCHEMA] = the schema name for your OMOP vocabulary instance, i.e. location of the CONCEPT table
-* [INCLUDING_COHORT_ID] = patients in the cohort referenced by the `including_cohort_id` will be included in the analysis
-* [EXCLUDING_COHORT_ID] = patients in the cohort referenced by the `excluding_cohort_id` will be excluded from the analysis
+* [INCLUDE_COHORT_ID] = patients in the cohort referenced by the `include_cohort_id` will be included in the analysis
+* [EXCLUDE_COHORT_ID] = patients in the cohort referenced by the `exclude_cohort_id` will be excluded from the analysis
 
 ## Frequencies of condition concepts for persons who are members of two cohorts (intersect)
 ```r
