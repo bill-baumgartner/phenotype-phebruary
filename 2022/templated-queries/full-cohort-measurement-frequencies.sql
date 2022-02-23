@@ -1,6 +1,6 @@
 SELECT measurement_concept_id, measurement_concept_label, count(*) AS count
 FROM (SELECT distinct meas.person_id,
-                      CAST(meas.measurement_concept_id AS STRING) AS measurement_concept_id,
+                      meas.measurement_concept_id AS measurement_concept_id,
                       (SELECT concept_name FROM @vocabulary_database_schema.concept WHERE concept_id = meas.measurement_concept_id) AS measurement_concept_label
       FROM @cdm_database_schema.measurement AS meas
       INNER JOIN @cdm_database_schema.cohort AS cohort ON meas.person_id = cohort.subject_id

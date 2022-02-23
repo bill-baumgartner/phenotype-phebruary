@@ -1,6 +1,6 @@
 SELECT observation_concept_id, observation_concept_label, count(*) AS count
 FROM (SELECT distinct obs.person_id,
-                      CAST(obs.observation_concept_id AS STRING) AS observation_concept_id,
+                      obs.observation_concept_id AS observation_concept_id,
                       (SELECT concept_name FROM @vocabulary_database_schema.concept WHERE concept_id = obs.observation_concept_id) AS observation_concept_label
       FROM @cdm_database_schema.observation AS obs
       INNER JOIN @cdm_database_schema.cohort AS cohort ON obs.person_id = cohort.subject_id

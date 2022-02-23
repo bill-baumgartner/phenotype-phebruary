@@ -1,6 +1,6 @@
 SELECT condition_concept_id, condition_concept_label, count(*) AS count
 FROM (SELECT distinct co.person_id,
-                      CAST(co.condition_concept_id AS STRING) AS condition_concept_id,
+                      co.condition_concept_id AS condition_concept_id,
                       (SELECT concept_name FROM @vocabulary_database_schema.concept WHERE concept_id = co.condition_concept_id) AS condition_concept_label
       FROM @cdm_database_schema.condition_occurrence AS co
       INNER JOIN @cdm_database_schema.cohort AS cohort ON co.person_id = cohort.subject_id
