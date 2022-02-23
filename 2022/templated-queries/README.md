@@ -1,10 +1,10 @@
 # Templated queries for computing cohort concept frequencies
 
-This folder contains templated queries for computing the most frequent concepts for a given cohort for the following domains: `condition`, `drug`, `measurement`, `observation`, & `procedure`. For each domain there are three versions of the query to return frequencies based on a single cohort (`full`), persons in only one cohort by not another (`only`), and persons in intersection of two cohorts (`intersect`).
+This folder contains templated queries for computing the most frequent concepts for a given cohort for the following domains: `condition`, `drug`, `measurement`, `observation`, & `procedure`. For each domain there are three versions of the query to return frequencies based on a single cohort (`full`), persons in only one cohort but not another (`only`), and persons in the intersection of two cohorts (`intersect`).
 
-For all analyses, by definition, a concept is included if its time window overlaps at any point with a cohort time window, and a concept is only counted once per patient even it the concept is associated multiple times for a given patient within a cohort time window.
+For all analyses, by definition, a concept is included if its time window overlaps at any point with a cohort time window, and a concept is only counted once per patient even if the concept is associated multiple times for a given patient within a cohort time window.
 
-The SqlRender library can be used to render sql from the templates as shown below for the `condition` domain:
+The SqlRender library can be used to render sql from the templates as shown below using the `condition` domain as an example:
 
 ## Frequencies of condition concepts for all persons in a single cohort (full)
 ```r
