@@ -1,4 +1,4 @@
-# Templated queries for computing cohort concept frequencies
+# Templated queries for computing concept frequencies of Atlas and Aphrodite cohorts (Table 1 of blog post)
 
 This folder contains templated queries for computing the most frequent concepts for a given cohort for the following domains: `condition`, `drug`, `measurement`, `observation`, & `procedure`. For each domain there are three versions of the query to return frequencies based on a single cohort (`full`), persons in only one cohort but not another (`only`), and persons in the intersection of two cohorts (`intersect`).
 
